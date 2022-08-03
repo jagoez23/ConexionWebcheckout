@@ -32,7 +32,6 @@ class CreateSessionRequest extends GetInformationRequest implements WebcheckoutR
             'returnUrl' => $this->returnUrl,
             'ipAddress' => app(abstract:Request::class)->getClientIp(),
             'userAgent' => substr(app(abstract:Request::class)->header('User-Agent'), 0, 255)
-
         ]);
     }
 }
