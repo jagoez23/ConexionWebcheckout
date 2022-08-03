@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Request;
-
 use App\Contracts\WebcheckoutRequestContract;
 use Illuminate\Http\Request;
+
+
 
 class CreateSessionRequest extends GetInformationRequest implements WebcheckoutRequestContract
 {
@@ -30,8 +31,8 @@ class CreateSessionRequest extends GetInformationRequest implements WebcheckoutR
             'payment' => $this->payment,
             'expiration' => $this->expiration,
             'returnUrl' => $this->returnUrl,
-            'ipAddress' => app(abstract:Request::class)->getClientIp(),
-            'userAgent' => substr(app(abstract:Request::class)->header('User-Agent'), 0, 255)
+            'ipAddress' => app(Request::class)->getClientIp(),
+            'userAgent' => substr(app(Request::class)->header('User-Agent'), 0, 255)
         ]);
     }
 }
